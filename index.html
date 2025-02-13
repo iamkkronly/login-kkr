@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Neon Login Page</title>
     <style>
-        /* Google Font */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
         * {
@@ -15,32 +14,44 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Background Animation */
+        /* Animated Background */
         body {
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(-45deg, #000428, #004e92, #000428, #004e92);
-            background-size: 400% 400%;
-            animation: backgroundShift 8s infinite alternate;
+            background: black;
+            overflow: hidden;
+            position: relative;
         }
 
-        @keyframes backgroundShift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+        /* Floating Particles */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/Yi5S9D4.png'); /* Particle effect */
+            opacity: 0.3;
+            animation: moveParticles 10s infinite linear;
         }
 
-        /* Glassmorphism Container */
+        @keyframes moveParticles {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-20px); }
+        }
+
+        /* Glassmorphism Login Box */
         .login-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
+            position: relative;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
             text-align: center;
             width: 360px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(0, 255, 255, 0.2);
             transition: 0.3s;
         }
 
@@ -49,10 +60,11 @@
         }
 
         h2 {
-            color: #fff;
+            color: cyan;
             margin-bottom: 20px;
             font-weight: 600;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         /* Floating Input Fields */
@@ -66,11 +78,15 @@
             padding: 12px;
             background: transparent;
             border: none;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-            color: #fff;
+            border-bottom: 2px solid rgba(0, 255, 255, 0.5);
+            color: cyan;
             font-size: 16px;
             outline: none;
             transition: 0.3s;
+        }
+
+        input::placeholder {
+            color: transparent;
         }
 
         input:focus {
@@ -82,7 +98,7 @@
             position: absolute;
             top: 12px;
             left: 0;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(0, 255, 255, 0.6);
             transition: 0.3s;
         }
 
@@ -139,12 +155,28 @@
             font-weight: bold;
         }
 
+        /* Glowing Border Effect */
+        .glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 15px cyan;
+            animation: glowEffect 1.5s infinite alternate;
+        }
+
+        @keyframes glowEffect {
+            0% { box-shadow: 0 0 10px cyan; }
+            100% { box-shadow: 0 0 20px cyan; }
+        }
+
     </style>
 </head>
 <body>
 
     <div class="login-container">
-        <h2>Login</h2>
+        <div class="glow"></div>
+        <h2>Neon Login</h2>
         
         <div class="input-group">
             <input type="text" id="username" placeholder=" " required>
