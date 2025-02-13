@@ -15,21 +15,20 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Animated Background */
+        /* Dynamic Background */
         body {
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
-            background-size: 400% 400%;
-            animation: gradientBG 6s ease infinite;
+            background: linear-gradient(45deg, red, blue, green, yellow, pink, purple);
+            background-size: 300% 300%;
+            animation: fastBackground 0.1s infinite linear;
         }
 
-        @keyframes gradientBG {
+        @keyframes fastBackground {
             0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         /* Glassmorphism Effect */
