@@ -5,56 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
         }
+
         .login-container {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
+            width: 350px;
+            transition: 0.3s;
         }
+
+        .login-container:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
         input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: 0.3s;
         }
+
+        input:focus {
+            border-color: #764ba2;
+            outline: none;
+            box-shadow: 0 0 8px rgba(118, 75, 162, 0.3);
+        }
+
         button {
             width: 100%;
-            padding: 10px;
-            background: #007BFF;
+            padding: 12px;
+            background: #764ba2;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 16px;
             cursor: pointer;
+            transition: 0.3s;
         }
+
         button:hover {
-            background: #0056b3;
+            background: #5a3b91;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
+
     <div class="login-container">
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Enter ID" required>
-        <input type="password" id="password" placeholder="Enter Password" required>
+        <h2>Welcome Back</h2>
+        <input type="text" id="username" placeholder="Enter ID">
+        <input type="password" id="password" placeholder="Enter Password">
         <button onclick="checkLogin()">Login</button>
-        <p id="error-message" style="color: red;"></p>
+        <p id="error-message" class="error-message"></p>
     </div>
 
     <script>
         function checkLogin() {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
-            
+
             if (username === "iamkkronly" && password === "iamkkronly") {
                 window.location.href = "https://hicrazy5.wordpress.com";
             } else {
@@ -62,5 +103,6 @@
             }
         }
     </script>
+
 </body>
 </html>
